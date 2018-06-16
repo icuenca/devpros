@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+.panel-heading
+{
+	text-align: center;
+}
+
+.row
+{
+	margin-top:20px;
+}
+</style>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+
+<script language="javascript">
+$(document).ready(function() {
+	$("#buscar").click(function(event) {
+		
+	var mons = $('#moneda').val()
+	var cryps = $('#cryptos').val()
+
+	$.post("ajax.php?c=index&f=buscaCryptos",
+		 	{
+				monedas: mons,
+				cryptos: cryps,
+				cantidad: $('#cantidad').val()
+			 },
+			 function(data)
+			 {
+				//console.log(data)
+			 	$('#resultados').html(data)
+				
+			 });
+
+	});
+
+
+});
+</script>
+<body>
+<!--<center>
+	<h1>RingooMVC 2.0</h1>
+	<h2>Welcome</h2>
+	<h3>This is my first App</h3>
+	<h4>{{ hello }}</h4>
+	<h5>{{ fecha }}</h5>
+</center>-->
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">CALCULADORA DE CRIPTOMONEDAS</h3>
+  </div>
+  <div class="panel-body">
+  <div class='row'>
+    	<div class="col-xs-12 col-md-2 col-md-offset-4">
+    		<b>Cantidad:</b>
+    	</div>
+    	<div class="col-xs-12 col-md-4">
+    		<input type='text' id='cantidad'>
+    	</div>
+    </div>
+    <div class='row'>
+    	<div class="col-xs-12 col-md-2 col-md-offset-4">
+    		<b>Selecciona las monedas:</b>
+    	</div>
+    	<div class="col-xs-12 col-md-4">
+    		<select id='moneda' multiple="multiple" class='form-control'>
+    			{% for mon in monedas %}
+				    <option value="{{ mon }}">{{ mon }}</option>
+				{% endfor %}
+    		</select>
+    	</div>
+    </div>
+
+    <div class='row'>
+    	<div class="col-xs-12 col-md-2 col-md-offset-4">
+    		<b>Selecciona las cryptos:</b>
+    	</div>
+    	<div class="col-xs-12 col-md-4">
+    		<select id='cryptos' multiple="multiple" class='form-control'>
+    			{% for c in cryp %}
+				    <option value="{{ c }}">{{ c }}</option>
+				{% endfor %}
+    		</select>
+    	</div>
+    </div>
+    <div class='row'>
+    	<div class="col-xs-12 col-md-2 col-md-offset-6">
+    		<button class="btn btn-primary" id='buscar'>Buscar</button>
+    	</div>
+    </div>
+    <hr />
+    <div class='row'>
+    	<div class="col-xs-12 col-md-4 col-md-offset-4" id='resultados'>
+    		Resultado:
+    	</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+@charset "UTF-8";	
+	/* CSS Para sistema contable netwarcont version 1.0 */
+	/* Por Ivan Cuenca y Miguel Velazco 13 de Septiembre 2013*/
+	/* Para los jquery UI se usa SMOOTHNESS */
+	
+	body{
+		font-family:Arial, Helvetica, sans-serif;/*Fuente de la pagina-------------------*/
+		font-size:12px;/*Tamaño de fuente-------------------*/
+	}
+	

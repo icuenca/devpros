@@ -1,0 +1,21 @@
+{
+    "name": "icuenca/ringoo-mvc",
+    "type": "project",
+    "description": "A Simple PHP Micro MVC Framework",
+    "keywords": ["Framework","PHP", "Simple PHP"],
+    "homepage": "https://github.com/icuenca/ringooMVC-1.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Cuenca",
+            "email": "ivanqenk1@gmail.com",
+            "homepage": "https://github.com/icuenca/ringooMVC-1.0",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "twig/twig": "^1.0"
+    }
+}
